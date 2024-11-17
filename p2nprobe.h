@@ -13,7 +13,7 @@
 #include <signal.h>
 #include <cstdint>
 
-typedef struct Flow
+typedef struct flow_t
 {
     uint32_t src;
     uint32_t dst;
@@ -35,7 +35,7 @@ typedef struct Flow
     uint8_t x7;
     uint8_t x8;
     uint16_t pad2;
-} Flow;
+} flow_t;
 
 typedef struct packet_header
 {
@@ -49,3 +49,9 @@ typedef struct packet_header
     uint8_t engine_id = 0;
     uint16_t samplingInterval; // Empty
 } packet_eader;
+
+typedef struct dynamic_flow_array
+{
+    flow_t *array = NULL;
+    int index;
+} flow_array;
