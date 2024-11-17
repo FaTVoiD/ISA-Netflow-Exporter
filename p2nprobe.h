@@ -2,6 +2,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
+#include <netinet/ether.h>
 #include <netdb.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -12,6 +13,9 @@
 #include <unistd.h>
 #include <signal.h>
 #include <cstdint>
+#include <iostream>
+
+using namespace std;
 
 typedef struct flow_t
 {
@@ -50,9 +54,16 @@ typedef struct packet_header
     uint16_t samplingInterval; // Empty
 } packet_eader;
 
+typedef struct flow_time
+{
+    struct timeval flow_first_pkt_time;
+    struct timeval flow_last_pkt_time;
+} flow_time;
+
 typedef struct dynamic_flow_array
 {
     flow_t *array = NULL;
+    flow_time *time_array = NULL;
     int index = 0;
     long int size = 32;
 } *flow_array;
