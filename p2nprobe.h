@@ -53,5 +53,6 @@ typedef struct packet_header
 typedef struct dynamic_flow_array
 {
     flow_t *array = NULL;
-    int index;
-} flow_array;
+    int index = 0;
+    long int size = 32;
+} *flow_array;
