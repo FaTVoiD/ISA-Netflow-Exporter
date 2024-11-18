@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
         }
         else if (strcmp(argv[1], "--help") == 0)
         {
-            cout << "Correct usage is as follows: ./p2nprobe <host>:<port> <pcap_file_path> [-a <active_timeout> -i <inactive_timeout>]\nArguments might be in any order.\n";
+            cout << "Correct usage is as follows: ./p2nprobe <host>:<port> <pcap_file_path> [-a <active_timeout> -i <inactive_timeout>]\nArguments might be in any order.\nArguments with '<>' are mandatory, while with '[]' are optional.\n";
             return 0;
         }
         else if (string(argv[i]).find(":") != string::npos)
