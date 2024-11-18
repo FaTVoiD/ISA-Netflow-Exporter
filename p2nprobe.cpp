@@ -103,9 +103,12 @@ int main(int argc, char *argv[])
             // Found ':'
             if (host_port_found == false)
             {
+                // Inspired by: https://www.geeksforgeeks.org/how-to-split-a-string-in-cc-python-and-java/
+                //----------------------------------------------------------------------------------------
                 host = strtok(argv[i], ":"); // IP address or domain of the collector
                 port = strtok(NULL, ":");    // port of the collector
                 host_port_found = true;
+                //----------------------------------------------------------------------------------------
             }
             else
             {
@@ -159,6 +162,8 @@ int main(int argc, char *argv[])
         }
     }
 
+    // Inspired by: https://www.cs.cmu.edu/afs/cs/academic/class/15213-f99/www/class26/udpclient.c
+    //--------------------------------------------------------------------------------------------
     // Create socket
     if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0)
     {
@@ -179,6 +184,7 @@ int main(int argc, char *argv[])
     bcopy((char *)server->h_addr, (char *)&serveraddr.sin_addr.s_addr, server->h_length);
     serveraddr.sin_port = htons(portnum);
     serverlen = sizeof(serveraddr);
+    //--------------------------------------------------------------------------------------------
 
     // Checking if timout values were specified in arguments
     if (a_arg_index == -1)
@@ -211,6 +217,9 @@ int main(int argc, char *argv[])
     struct pcap_pkthdr pcap_header;
     char pcap_error_buffer[PCAP_ERRBUF_SIZE];
 
+    // Inspired by: https://moodle.vut.cz/course/view.php?id=280945
+    // Author: (c) Petr Matousek, 2020
+    //------------------------------------------------------------------------------------------------------
     // Open .pcap file
     pcap_t *pcap_handle = pcap_open_offline(file, pcap_error_buffer);
     if (pcap_handle == NULL)
@@ -270,6 +279,7 @@ int main(int argc, char *argv[])
             continue;
         }
     }
+    //------------------------------------------------------------------------------------------------------
     array_destroy(active_flows_buffer);
     pcap_close(pcap_handle);
     close(sockfd);
