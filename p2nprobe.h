@@ -1,19 +1,15 @@
 #include <pcap.h>
 #include <sys/socket.h>
-#include <arpa/inet.h>
-#include <netinet/in.h>
 #include <netinet/ether.h>
-#include <netdb.h>
+#include <netinet/ip_icmp.h>
+#include <netinet/tcp.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <netdb.h>
-#include <unistd.h>
-#include <signal.h>
 #include <cstdint>
 #include <iostream>
+#include <stdbool.h>
+
+#define MAX_BUFFER_SIZE sizeof(packet_header) + 30 * sizeof(flow_t)
 
 using namespace std;
 
@@ -52,7 +48,7 @@ typedef struct packet_header
     uint8_t engine = 0;
     uint8_t engine_id = 0;
     uint16_t samplingInterval; // Empty
-} packet_eader;
+} packet_header;
 
 typedef struct flow_time
 {
