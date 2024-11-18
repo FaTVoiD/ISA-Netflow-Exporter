@@ -1,3 +1,8 @@
+// Brno University of Technology - Faculty of Information Technology
+//                  Author: Michal Belovec
+//                   Login: xbelov04
+//                    Date: 18.11.2024
+
 #include "p2nprobe.h"
 
 int check_timeout_arg(char *arg);
