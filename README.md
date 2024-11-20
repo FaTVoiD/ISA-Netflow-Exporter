@@ -1,6 +1,6 @@
 # ISA project - Netflow v5 TCP Exporter
 
-Author: Michal Belovec
+Author: Michal Belovec\
 Login: xbelov04  
 
 ## Description
@@ -40,6 +40,6 @@ When the program is run with the ":" argument, it crashes. The program determine
 
 ## List of files contained
 
-p2nprobe.cpp - program implementation
-p2nprobe.h - header file for p2nprobe.cpp
-Makefile - used for building the project
+p2nprobe.cpp - program implementation\
+p2nprobe.h - header file for p2nprobe.cpp\
+Makefile - used for building the project\
