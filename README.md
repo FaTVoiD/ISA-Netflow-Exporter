@@ -42,4 +42,4 @@ When the program is run with the ":" argument, it crashes. The program determine
 
 p2nprobe.cpp - program implementation\
 p2nprobe.h - header file for p2nprobe.cpp\
-Makefile - used for building the project\
+Makefile - used for building the project
